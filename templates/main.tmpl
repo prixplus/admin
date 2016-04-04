@@ -1,0 +1,19 @@
+<html>
+    <h1>
+        {{ .title }}
+    </h1>
+
+    Hello {{ .user }}<br/>
+
+    <span style="color: red">{{ .err }}</span><br/>
+    
+	<form action="/" method="POST">
+		Directory: <input type="text" name="dir" value="{{ .dir }}"><br/>
+		Command: <input type="text" name="cmd" value="{{ .cmd }}"><br/><br/>
+		<input type="submit" value="Submit">
+	</form> 
+	<br/><hr><br/>
+	<div style="white-space:pre-wrap;">
+		{{ .out }}
+	</div>
+</html>
