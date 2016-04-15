@@ -65,10 +65,6 @@ func HookHandler(c *gin.Context) {
 func main() {
 
 	prixpath := os.Getenv("GOPATH") + "/src/github.com/prixplus/admin/"
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8888"
-	}
 
 	// If var $MODE is set to RELEASE,
 	// than starts server in release mode
@@ -112,7 +108,7 @@ func main() {
 	log.Printf("Server starting in %s mode", gin.Mode())
 
 	// Manners allows you to shut your Go webserver down gracefully, without dropping any requests
-	manners.ListenAndServe(":"+port, r)
+	manners.ListenAndServe(":8888", r)
 }
 
 func initVars(db *sql.DB) {

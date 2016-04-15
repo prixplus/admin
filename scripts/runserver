@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# To go work properly
+export GOROOT=/usr/local/go
+export GOPATH=/home/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# For production
+# export GIN_MODE=release
+# export MODE=release
+
+# Remove and clone repository again
+rm $GOPATH/src/github.com/prixplus/server -rf
+go get github.com/prixplus/server
+
+# Install server
+go install github.com/prixplus/server
+
+# Kill server process and run it again
+pkill server
+server > /home/go/out.log
